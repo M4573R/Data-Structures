@@ -40,6 +40,21 @@ else
 }
 ```
 
+
+###Another implementation:
+
+
+```C++
+int bigmod(int a, int b, int M){
+ if(b == 0) return 1 % M;
+ int x = bigmod(a, b / 2, M);
+ x = (x * x) % M;
+if(b % 2 == 1) x = (x * a) % M;
+ return x;
+} 
+```
+
+
 Solved problem : [UVA BigMod(374)](https://github.com/M4573R/Data-Structures/blob/master/math/BigMod.cpp)
 
 References : 
