@@ -14,11 +14,13 @@ return A
 ```
 
 Observation : Apart from 1 and N itself, smallest factor of N is 2 and largest factor is N/2.
-Let A = {1,N}
+Let 
+```
+A = {1,N}
 for i = 2 to N/2:
       if(N%i==0)
          Add i to list A
-         
+```         
 Second observation : According to number theory, if there is a number a that divides N, then there
 is also another number b = N/a that divides N. If a < b, then a < sqrt(N) and b > sqrt(N). And if
 a > b, then a > sqrt(N) and b < sqrt(N)
