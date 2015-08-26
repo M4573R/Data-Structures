@@ -85,3 +85,10 @@ Incomplete : See [here](http://www.geeksforgeeks.org/program-for-nth-fibonacci-n
 
 
 From [this post](http://talkbinary.com/programming/c/fibonacci-in-c/)
+
+
+http://kukuruku.co/hub/algorithms/the-nth-fibonacci-number-in-olog-n
+
+http://www.geeksforgeeks.org/program-for-nth-fibonacci-number/
+
+https://ronzii.wordpress.com/2011/07/09/using-matrix-exponentiation-to-calculated-nth-fibonacci-number/
