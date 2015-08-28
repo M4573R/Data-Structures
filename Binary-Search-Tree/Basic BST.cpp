@@ -119,6 +119,19 @@ return Findmax(root->right);
 
 }
 
+
+// Finds the height/maximum depth of a binary search tree
+
+int Height(BSTNode* root){
+    if(root == NULL)
+        return -1;
+    int leftheight = Height(root->left);
+    int rightheight = Height(root->right);
+    return max(leftheight,rightheight)+1;
+
+
+}
+
 int main() {
 	BstNode* root = NULL;  // Creating an empty tree
 	/*Code to test the logic*/
