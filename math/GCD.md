@@ -55,6 +55,9 @@ int gcd(int a,int b)
 }
 ```
 
+However, Euclid’s algorithm can give us more than just the gcd(a, b). It can also find
+integers x and y such that a · x + b · y = gcd(a, b). This is extended euclidean algorithm.
+
 
 
 
