@@ -2,6 +2,7 @@ References :
 
 1.[Low Level Bit Hacks](http://www.catonmat.net/blog/low-level-bit-hacks-you-absolutely-must-know/)
 2.[Bitwise Sieve](http://www.shafaetsplanet.com/planetcoding/?p=855)
+3.[Bit Operations](http://zobayer.blogspot.com/2009/12/bitwise-operations-in-cc-part-1.html)
 
 Key idea : In a regular array after observing the value of the index we can determine whether a number 
 is prime or not. Assume we are dealing with an 32 bit integer array. 
