@@ -166,6 +166,51 @@ It's written as regular Sieve but instead of checking status[i] we check
 status[i/32]'s i%32 no. bit's value. We can efficiently generate up to 10^8th primes by bitwise Sieve.
 
 
+More optimizations : 
 
+we know multiplying a number by two is same as shifting it's binary 1 position left.
+we know dividing a number by two is same as shifting it's binary representation 1 position right.
+we know performing mod with 32 is same as performing bitwise AND with 31.
+
+In general : 
+
+Divisibility by power of 2
+Use of % operation is very slow, also the * and / operations. But in case of the second operand is a power of 2, we can take the advantage of bit-wise operations.
+Here are some equivalent operations:
+
+Here, P is in the form 2X and N is any integer (typically unsigned)
+
+
+N % P = N & (P-1)
+N / P = N >> X
+N * P = N << X
+
+A lot faster and smarter...
+About the % operation : the above is possible only when P is a power of 2
+
+We can write the code as : 
+```C++
+int status[(mx/32)+2];
+void sieve()
+{
+     int i, j, sqrtN; 
+     sqrtN = int( sqrt( N ) );
+     for( i = 3; i <= sqrtN; i += 2 ) 
+     {
+         if( Check(status[i>>5],i&31)==0)
+         {
+              for( j = i*i; j <= N; j += (i<<1) )
+             {
+                 status[j>>5]=Set(status[j>>5],j & 31)   ;
+              }
+         }
+     }
+    
+     puts("2");
+     for(i=3;i<=N;i+=2)
+         if( Check(status[i>>5],i&31)==0)
+          printf("%d\n",i);
+}
+```
 
 
