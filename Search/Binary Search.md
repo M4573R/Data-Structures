@@ -1,3 +1,6 @@
+Reference : [Searching](https://www.hackerearth.com/notes/searching-code-monk/)
+
+
 A. Introduction
 
 Searching is one of the most fundamental problems in Computer Science. It is the process of finding a particular item in a collection of items. Typically, a search answers whether the item is present in the collection or not. For simplification for all our examples, we will be taking an array as the collection.
