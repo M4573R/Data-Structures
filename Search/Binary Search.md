@@ -8,12 +8,15 @@ Linear Search is the simplest method to solve the searching problem. It finds an
 
 Code for the linear search is:
 
+```C++
 bool linearSearch (int A[], int length, int item) {
     for (int i = 0 ; i < length ; ++i)
         if (item == A[i])
             return true;                // Item is found in array A
     return false;                        // Item is not found in array A
 }
+```
+
 Consider an example. A = {1, 9, 2, 4, 6, 3, 7, 5, 8, 0} and suppose we need to find 3 in the given array. Linear search starts from the beginning and checks if it matches with the item we are searching.
 
 
@@ -23,12 +26,14 @@ If the item = 10, linearSearch() function will iterate over all the elements in 
 
 Now, let us consider the modified search where we need to return the position, where the item is found. To solve this modified search problem, we just need to change 2 lines in the linearSearch() function.
 
+```C++
 int linearSearch ( int A[ ], int length, int item) {
     for (int i = 0; i < length ; ++i)
         if (item == A[i])
             return i;            //Returning the index of the element found.
     return -1;                    // Item is not found in array A
 }
+```
 In the above codes -1 denotes that the item is not found.
 
 Note: If there are duplicate elements, the above code will return the first occurrence of the item.
@@ -45,6 +50,7 @@ A condition for Binary Search is that the array should be a sorted array. If the
 
 Pseudocode for Binary Search is
 
+```
 Algorithm binarySearch(A, left, right, item) {
     if left is less than or equal to right then :
         mid = (left + right) / 2
@@ -54,12 +60,15 @@ Algorithm binarySearch(A, left, right, item) {
     else
         return false
 }
+```
+
 Note: Array has to be sorted for Binary Search to work.
 
 Implementation of Binary search is
 
 1. Recursive Binary Search
 
+```C++
 bool binarySearchRecur(int A[], int left, int right, int item) 
 {
     if (left <= right) 
@@ -81,8 +90,11 @@ bool binarySearchRecur(int A[], int left, int right, int item)
    else
         return false;                    // item not found
 }
+```
+
 2. Iterative Binary Search
 
+```C++
 bool binarySearchIter(int A[], int length, int item) 
 {
     int left = 0, right = length - 1, mid;
@@ -98,6 +110,8 @@ bool binarySearchIter(int A[], int length, int item)
     }
     return false;                        // item not found
 }
+```
+
 Consider an example. Let array A = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9} and we need to find 3 in array A. So item = 3 and length = 10. Let us consider the Iterative Binary Search.
 
 Initially,
@@ -139,6 +153,7 @@ Given a sorted array A with possible duplicate elements and you need to find the
 Solution:
 If the item is less than or equal to the middle element we will recurse to the left sub-array, otherwise we will recurse to the right sub-array.
 
+```C++
 int firstOccurrence(int A[], int left, int right, int item) {
     int mid;
     while (right - left > 1) {
@@ -150,10 +165,13 @@ int firstOccurrence(int A[], int left, int right, int item) {
     }
     return right;
 }
+```
+
 Question 2: Given a sorted array A with possible duplicate elements and you need to find the last occurrence of a given input item (assuming the element is present in the array).
 
 Solution: If the item is greater than or equal to the middle element we will recurse to the right sub-array, otherwise we will recurse to the left sub-array.
 
+```C++
 int lastOccurrence(int A[], int left, int right, int item) {
     int mid;
     while (right - left > 1) {
@@ -165,10 +183,13 @@ int lastOccurrence(int A[], int left, int right, int item) {
     }
     return left;
 }
+```
+
 Question 3: Given a sorted array A with possible duplicate elements and you need to find the number of occurrences of a given input item (assuming the element is present in the array).
 
 Solution: If we can find the first and last occurrence of the item in the array A then number of occurrences of the item will be number of elements from first occurrence to the last occurrence.
 
+```C++
 int numberOfOccurrences(int A[], int size, int item) {
     // Note the boundary parameters
     int left = firstOccurrence(A, -1, size - 1, item);
@@ -178,6 +199,8 @@ int numberOfOccurrences(int A[], int size, int item) {
     else                                                            // If the item is not in the array A
         return 0;
 }
+```
+
 Binary Search is a simple and a powerful tool for you to keep in your toolbox. But, a problem as easy as searching for a particular element, will rarely be faced by you in your programming career - not directly, at least. So, the task is to identify and reduce a given problem into a problem which can thus be solved by using binary search. This can be done if we reduce the original problem into a Yes/No Problem.
 
 Let me try to clear the grounds by giving an example. Suppose there is a problem in which we have a monotonically increasing function f (i.e. f(i) < f(j) if i < j). We need to find a smallest x such that f(x) > 0.
@@ -196,6 +219,7 @@ All these four STL functions are a part of the header in C++.
 
 Example:
 
+```C++
 #include <bits/stdc++.h>
 #include <algorithm>
 using namespace std;
@@ -218,6 +242,8 @@ int main() {
     cout << "equal_range Second: " <<  (p.second - v.begin()) << endl;
     return 0;
 }
+```
+
 Output:
 2 is in the array
 lower_bound: 2
