@@ -1,4 +1,5 @@
-Reference : [Searching](https://www.hackerearth.com/notes/searching-code-monk/)
+Reference : 1.[Searching](https://www.hackerearth.com/notes/searching-code-monk/)
+            2.[Midpoint](http://www.geeksforgeeks.org/problem-binary-search-implementations/)
 
 
 A. Introduction
@@ -258,3 +259,82 @@ Practice Problems:
 
 https://www.hackerearth.com/problem/algorithm/sherlock-and-numbers/
 https://www.hackerearth.com/problem/algorithm/xsquare-and-number-list/
+
+
+### Part 2 : Midpoints 
+
+A Problem in Many Binary Search Implementations:
+Consider the following C implementation of Binary Search function, is there anything wrong in this?
+
+// A iterative binary search function. It returns location of x in
+// given array arr[l..r] if present, otherwise -1
+int binarySearch(int arr[], int l, int r, int x)
+{
+    while (l <= r)
+    {
+        // find index of middle element
+        int m = (l+r)/2;
+ 
+        // Check if x is present at mid
+        if (arr[m] == x) return m;
+ 
+        // If x greater, ignore left half
+        if (arr[m] < x) l = m + 1;
+ 
+        // If x is smaller, ignore right half
+        else r = m - 1;
+    }
+ 
+    // if we reach here, then element was not present
+    return -1;
+}
+
+The above looks fine except one subtle thing, the expression “m = (l+r)/2″. It fails for large values of l and r. Specifically, it fails if the sum of low and high is greater than the maximum positive int value (231 – 1). The sum overflows to a negative value, and the value stays negative when divided by two. In C this causes an array index out of bounds with unpredictable results.
+
+What is the way to resolve this problem?
+Following is one way:
+
+        int mid = low + ((high - low) / 2); 
+        
+        
+Probably faster, and arguably as clear is (works only in Java, refer this):
+
+        int mid = (low + high) >>> 1; 
+In C and C++ (where you don’t have the >>> operator), you can do this:
+
+        mid = ((unsigned int)low + (unsigned int)high)) >> 1 
+The similar problem appears in Merge Sort as well.
+
+The above content is taken from google reasearch blog.
+
+Please refer this as well, it points out that the above solutions may not always work.
+
+The above problem occurs when array length is 230 or greater and the search repeatedly moves to second half of the array. This much size of array is not likely to appear most of the time. For example, when we try the below program with 32 bit Code Blocks compiler, we get compiler error.
+
+```C++
+int main()
+{
+    int arr[1<<30];
+    return 0;
+}
+```
+Output:
+
+error: size of array 'arr' is too large
+Even when we try boolean array, the program compiles fine, but crashes when run in Windows 7.0 and Code Blocks 32 bit compiler
+
+```C++
+#include <stdbool.h>
+int main()
+{
+    bool arr[1<<30];
+    return 0;
+}
+```
+Output: No compiler error, but crashes at run time.
+
+Sources:
+http://googleresearch.blogspot.in/2006/06/extra-extra-read-all-about-it-nearly.html
+http://locklessinc.com/articles/binary_search/
+
+This article is contributed by Abhay Rathi. 
