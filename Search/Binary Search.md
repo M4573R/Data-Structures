@@ -16,29 +16,6 @@ bool linearSearch (int A[], int length, int item) {
 }
 Consider an example. A = {1, 9, 2, 4, 6, 3, 7, 5, 8, 0} and suppose we need to find 3 in the given array. Linear search starts from the beginning and checks if it matches with the item we are searching.
 
-In the example the item = 3 and length = 10.
-
-![enter image description here](https://d320jcjashajb2.cloudfront.net/media/uploads/d5a3dcc.png)
-
-For i = 0, A[i] = 1 and item is not equal to A[i].
-
-enter image description here
-
-For i = 1, A[i] = 9 and item is not equal to A[i].
-
-enter image description here
-
-For i = 2, A[i] = 2 and item is not equal to A[i].
-
-enter image description here
-
-For i = 3, A[i] = 4 and item is not equal to A[i].
-
-enter image description here
-
-For i = 4, A[i] = 6 and item is not equal to A[i].
-
-enter image description here
 
 For i = 5, A[i] = 3 and item is equal to A[i]. So the linearSearch() function will return true showing that the item is found.
 
@@ -123,16 +100,12 @@ bool binarySearchIter(int A[], int length, int item)
 }
 Consider an example. Let array A = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9} and we need to find 3 in array A. So item = 3 and length = 10. Let us consider the Iterative Binary Search.
 
-enter image description here
-
 Initially,
 left = 0
 right = length – 1 = 10 – 1 = 9
 In 1st iteration,
 mid = left + (right – left) / 2 = 0 + (9 – 0) / 2 = 4
 A[mid] ( = 4) is greater than item. Since the array A is sorted we can say that the item must be in the left sub-array.
-
-enter image description here
 
 So, 
 left = 0
@@ -141,8 +114,6 @@ In 2nd iteration,
 mid = left + (right – left) / 2 = 0 + (3 – 0) / 2 = 1
 A[mid] ( = 1) is smaller than item. Since the array A is sorted we can say that the item must be in the right sub-array.
 
-enter image description here
-
 So,
 left = mid + 1 = 1 + 1 = 2
 right = 3
@@ -150,7 +121,6 @@ In 3rd iteration,
 mid = left + (right – left) / 2 = 2 + (3 – 2) / 2 = 2
 A[mid] ( = 2) is smaller than item. Since the array A is sorted we can say that the item must be in the right sub-array.
 
-enter image description here
 
 So,
 left = mid + 1 = 2 + 1 = 3
