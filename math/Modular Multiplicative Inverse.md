@@ -75,5 +75,17 @@ From above,
 
 ![image](https://latex.codecogs.com/gif.latex?a*a%5E%7Bm-2%7D%20%5Cequiv%201%20%5Cpmod%20m)
 
+So ![image](https://latex.codecogs.com/gif.latex?a%5E%7Bm-2%7D) is the modular multiplicative inverse.
+
+Example : 
+
+![image](https://latex.codecogs.com/gif.latex?if%20m%20%3D%205%2C%20a%20%3D%204%2C%20then%2C%20a%5E%7Bm-2%7D%20%3D%204%5E3%20%3D%2064.)
+
+and 64*4 = 256 % 5 = 1.
+
+But what if m is not prime?
+
+Here comes the Euler's totient function.
+
 
 
