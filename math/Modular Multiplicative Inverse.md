@@ -135,3 +135,28 @@ So we can write ![i](https://latex.codecogs.com/gif.latex?a*a%5E%7B%5Cvarphi%20%
 
 where ![i](https://latex.codecogs.com/gif.latex?a%5E%7B%5Cvarphi%20%28m%29-1%7D) is the modular multiplicative inverse.
 
+
+###Brute force algorithm for finding multiplicative inverse.
+
+if we want to find multiplicative inverse of n under modulo m, then we can write 
+
+```C++
+int findMMI_bruteforce(int n,int M)
+{int i = 1;
+ while(i<M) // we try all the numbers from 1....m-1.
+ {if(((long long)i*n)%M == 1)
+         return i;
+  i++;
+ }
+ return -1;//MMI does not exist
+ }
+```
+
+
+ 
+ 
+         
+
+
+
+
