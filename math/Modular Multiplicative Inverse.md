@@ -117,5 +117,21 @@ Another way to describe it is by using Euler's product formula. It states
 ![i](https://upload.wikimedia.org/math/6/1/9/619a7845480ba7a8a749dc56a6de7c60.png)
 
 
+We can use it to get the modular multiplicative inverse.
 
+###Euler's theorem :
+
+In number theory, Euler's theorem (also known as the Fermat–Euler theorem or Euler's totient theorem) states that if n and a are coprime(i.e gcd(a,b)= 1) positive integers, then
+
+
+![i](https://latex.codecogs.com/gif.latex?a%5E%7B%5Cvarphi%20%28n%29%7D%20%5Cequiv%201%20%5Cpmod%7Bn%7D)
+
+where φ(n) is Euler's totient function. 
+
+The theorem may be used to easily reduce large powers modulo n. For example, consider finding the ones place decimal digit of 7222, i.e. 7222 (mod 10). Note that 7 and 10 are coprime, and φ(10) = 4. So Euler's theorem yields 74 ≡ 1 (mod 10), and we get 7222 ≡ 74 × 55 + 2 ≡ (74)55 × 72 ≡ 155 × 72 ≡ 49 ≡ 9 (mod 10).
+
+
+So we can write ![i](https://latex.codecogs.com/gif.latex?a*a%5E%7B%5Cvarphi%20%28m%29-1%7D%20%5Cequiv%201%20%5Cpmod%7Bn%7D)
+
+where ![i](https://latex.codecogs.com/gif.latex?a%5E%7B%5Cvarphi%20%28m%29-1%7D) is the modular multiplicative inverse.
 
