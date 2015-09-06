@@ -9,6 +9,10 @@ The modular multiplicative inverse is an integer ‘x’ such that.
  
 (i.e if we multiply a with x and then divide by m, we are going to get 1 as the remainder).
 
+The value of x should be in {0, 1, 2, … m-1}, i.e., in the ring of integer modulo m.
+
+The multiplicative inverse of “a modulo m” exists if and only if a and m are relatively prime (i.e., if gcd(a, m) = 1).
+
 Example : 
 
 1. if a = 4, m = 7, then x = 2 as 4*2 = 8 and 8 mod 7 = 1.
@@ -152,11 +156,98 @@ int findMMI_bruteforce(int n,int M)
  }
 ```
 
+### Fermat's little theorem approach:
 
- 
- 
-         
+If we know m is prime, then we can also use Fermats’s little theorem to find the inverse.
 
+am-1 ≡ 1 (mod m)  
+If we multiply both sides with a-1, we get
+
+ a-1 ≡ a m-2 (mod m)
+Below is C++ implementation of above idea.
+
+```C++
+// C++ program to find modular inverse of a under modulo m
+// This program works only if m is prime.
+#include<iostream>
+using namespace std;
+ 
+// To find GCD of a and b
+int gcd(int a, int b);
+ 
+// To compute x raised to power y under modulo m
+int power(int x, unsigned int y, unsigned int m);
+ 
+// Function to find modular inverse of a under modulo m
+// Assumption: m is prime
+void modInverse(int a, int m)
+{
+    int x, y;
+    int g = gcd(a, m);
+    if (g != 1)
+        cout << "Inverse doesn't exist";
+    else
+    {
+        // If a and m are relatively prime, then modulo inverse
+        // is a^(m-2) mode m
+        cout << "Modular multiplicative inverse is "
+             << power(a, m-2, m);
+    }
+}
+ 
+// To compute x^y under modulo m
+int power(int x, unsigned int y, unsigned int m)
+{
+    if (y == 0)
+        return 1; //base case. a^0 = 1
+    int p = power(x, y/2, m) % m; 
+    p = (p * p) % m;
+ 
+    return (y%2 == 0)? p : (x * p) % m;
+}
+// See big mod article to see how it works here : 
+// [big mod](https://github.com/M4573R/Data-Structures/blob/master/math/BigMod.md)
+
+// Function to return gcd of a and b
+int gcd(int a, int b)
+{
+    if (a == 0)
+        return b;
+    return gcd(b%a, a);
+}
+ 
+// Driver Program
+int main()
+{
+    int a = 3, m = 11;
+    modInverse(a, m);
+    return 0;
+}
+
+Output:
+
+Modular multiplicative inverse is 4 
+```
+
+Complexity of this algorithm is O(LogM)
+
+### Extended Euclidean Algorithm approach :
+
+The idea is to use Extended Euclidean algorithms that takes two integers ‘a’ and ‘b’, finds their gcd and also find ‘x’ and ‘y’ such that
+
+ ax + by = gcd(a, b) 
+ 
+To find multiplicative inverse of ‘a’ under ‘m’, we put b = m in above formula. Since we know that a and m are relatively prime, we can put value of gcd as 1.
+
+ax + my = 1 
+If we take modulo m on both sides, we get
+
+ax + my ≡ 1 (mod m)
+We can remove the second term on left side as ‘my (mod m)’ would always be 0 for an integer y.
+
+ax  ≡ 1 (mod m) 
+ 
+So the ‘x’ that we can find using Extended Euclid Algorithm is multiplicative inverse of ‘a’
 
 
 
