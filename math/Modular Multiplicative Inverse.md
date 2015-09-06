@@ -63,4 +63,17 @@ If a is not divisible by p, Fermat's little theorem is equivalent to the stateme
 
 For example, if a = 2 and p = 7 then 26 = 64 and 64 − 1 = 63 is a multiple of 7.
 
+We can use the second version :
+
+since if m is prime, we know by fermat's little theorem that 
+
+![image](https://latex.codecogs.com/gif.latex?a%5E%7Bm-1%7D%20%5Cequiv%201%20%5Cpmod%20m)
+
+We use this to find modular multiplicative inverse.
+
+From above,
+
+![image](https://latex.codecogs.com/gif.latex?a*a%5E%7Bm-2%7D%20%5Cequiv%201%20%5Cpmod%20m)
+
+
 
