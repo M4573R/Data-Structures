@@ -255,5 +255,8 @@ Reference :
 
 1.http://www.geeksforgeeks.org/multiplicative-inverse-under-modulo-m/
 2.http://www.geeksforgeeks.org/basic-and-extended-euclidean-algorithms/
-3.http://www.geeksforgeeks.org/eulers-totient-function/
+3.http://www.geeksforgeeks.org/eulers-totient-function/'
+4.https://www.youtube.com/playlist?list=PLTZbNwgO5ebofXdvHxZm3GmSPhhDeTr_k
+
+
 
