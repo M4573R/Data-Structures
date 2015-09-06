@@ -249,5 +249,11 @@ ax  ≡ 1 (mod m)
  
 So the ‘x’ that we can find using Extended Euclid Algorithm is multiplicative inverse of ‘a’
 
+*Still need improvement 
 
+Reference : 
+
+1.http://www.geeksforgeeks.org/multiplicative-inverse-under-modulo-m/
+2.http://www.geeksforgeeks.org/basic-and-extended-euclidean-algorithms/
+3.http://www.geeksforgeeks.org/eulers-totient-function/
 
