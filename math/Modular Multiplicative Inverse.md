@@ -257,6 +257,8 @@ Reference :
 2.http://www.geeksforgeeks.org/basic-and-extended-euclidean-algorithms/
 3.http://www.geeksforgeeks.org/eulers-totient-function/'
 4.https://www.youtube.com/playlist?list=PLTZbNwgO5ebofXdvHxZm3GmSPhhDeTr_k
+5.http://www-math.ucdenver.edu/~wcherowi/courses/m5410/exeucalg.html
+
 
 
 
