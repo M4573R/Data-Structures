@@ -18,3 +18,8 @@ bool isPrime(int n) {
   }
   return true; }
 ```
+
+To check whether 1000000007 is prime or not, we have to check 1000000007 - 2 = 1000000005 numbers. We can reduce this complexity
+to O(sqrt(N)) if we observe that if n is composite and n = a * b, then either a or b would be less than sqrt(N).
+
+If a or b is bigger than 
