@@ -58,7 +58,7 @@ Therefore x can only be divided by one or by itself (definition of prime).
 
 Note that phi(1) = 1, so the claim is true.
 
-3. If p is prime and k > 0 then phi(P^k) = P^k -P^k-1
+3. If p is prime and k > 0 then phi(P^k) = P^k -P^k-1. Note that here ^ denotes power. Here all the numbers from 1 to p^k are coprime to p^k except all the multiples of p, which are exactly p^(k -1).
 4. If m and n is coprime then phi(mn) = phi(m) * phi(n)
 
 Applications of Euler's function : 
@@ -350,4 +350,4 @@ long long int phi (long long int n)
 
 ###Optimized Method :
 
-
+See Euler with Sieve page.
