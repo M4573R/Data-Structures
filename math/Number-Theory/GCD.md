@@ -36,9 +36,23 @@ Therefore, gcd(2322,654) = 6.
 
 ###Iterative implementation : 
 ```C++
+int gcd(int a, int b) { // assuming a >= b
+  while (true) {
+    int remainder = a % b;
+    if (remainder == 0) {
+      return b;
+    }
+    a = b; // a takes the bigger side 
+    b = remainder; // b takes the smaller side 
+  }
+}
+```
+and
+
+```C++
 int  euclid_gcd(int a,int b)
-{ int divident = a >=b ? a : b;
-  int divisor = a <= b ? a : b;
+{ int divident = a >=b ? a : b; // larger number is the divident
+  int divisor = a <= b ? a : b; // smaller number is the divisor
   while(divisor!=0){
         int remainder = divident%divisor;
         divident = divisor;
