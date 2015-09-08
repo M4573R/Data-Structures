@@ -60,10 +60,10 @@ As the phi[MAX] array is set in global, initially it's set to zero for all eleme
 if phi[i] = 0, then it's prime otherwise it would have been processed before in the outer loop. If i is prime, then 
 phi[i] = i - 1 as φ(p) = p - 1.
 
-In the inner loop, for all the multiples greater than i, which starts from j = 2*i(which can also be represented as 
+In the inner loop, for all the multiples greater than i, which starts from j = 2 * i (which can also be represented as 
 j = (i << 1) as shifting a number to left is same as multiplying it with two), we first set it to phi[j] = j.
-In the product formula, we see that we multiply n*(i-1/i) for each of the divisor i's, so we really have to set 
-phi[j] = j first before multiplying. Then in the next line, phi[j] = phi[j]/i*(i-1); we were supposed to
+In the product formula, we see that we multiply n * (i-1/i) for each of the divisor i's, so we really have to set 
+phi[j] = j first before multiplying. Then in the next line, phi[j] = phi[j]/i * (i-1); we were supposed to
 write phi[j] = phi[j] * (i-1/i), but we wrote it like above to avoid overflow.
 
 one thing to note here: a * b / c and a / c * b are not always same for integer calculation
