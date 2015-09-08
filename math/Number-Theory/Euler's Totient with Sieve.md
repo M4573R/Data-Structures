@@ -78,3 +78,59 @@ Because, we need to go through every numbers in inner loop, as we are trying to 
 in the range 1 to MAX.
 
 Reference : [Euler's totient with Sieve](http://zobayer.blogspot.com/2013/02/euler-totient-function.html)
+
+Another implementation see here : from https://github.com/fernandoBRS/Number-Theory/blob/master/Totient/totient_sieve.cpp
+
+```C++
+#include<vector>
+#include<cstdio>
+#define MAXN 1000000
+using namespace std;
+
+int phi[MAXN + 1], prime[MAXN/10], sz=0;
+vector<bool> mark(MAXN + 1);
+
+void init() {
+    phi[1] = 1;
+    for (int i = 2; i <= MAXN; i++ ) {
+        if(!mark[i]){ //if it's not marked then it's prime
+            phi[i] = i-1; // we set phi[i] as prime as phi(p) = p - 1 for prime number p
+            prime[sz++]= i; // we add that number i to prime numbers
+        }
+
+        for (int j=0; j<sz && prime[j]*i <= MAXN; j++ ) { // for all multiples of i
+            mark[prime[j]*i]=1; // 
+
+            if(i%prime[j]==0){
+                int ll = 0;int xx = i;
+                while(xx%prime[j]==0)
+                {
+                xx/=prime[j];
+                ll++;
+                }
+                int mm = 1;
+                for(int k=0;k<ll;k++)mm*=prime[j];
+                phi[i*prime[j]] = phi[xx]*mm*(prime[j]-1);
+                break;
+            }
+            else phi[i*prime[j]] = phi[i]*(prime[j]-1 ); 
+        }
+    }
+}
+
+int main() {
+    init();
+
+    int t;
+    scanf("%d", &t);
+
+    while(t--) {
+        int n;
+
+        scanf("%d",&n);
+        printf("%d\n",phi[n]);
+    }
+
+    return 0;
+}
+```
