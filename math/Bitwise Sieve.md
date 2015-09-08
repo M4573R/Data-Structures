@@ -122,7 +122,7 @@ y = x | (1<<n)
 This bit hack combines the same (1<<n) trick of setting n-th bit by shifting with OR operation.
 The result of OR-ing a variable with a value that has n-th bit set is turning that n-th bit on. 
 It's because OR-ing any value with 0 leaves the value the same; but OR-ing it with 1 changes it to 1 (if it wasn't already). 
-Let's see how that works in action:
+Let's see how that works in action
 
 Suppose we have value 120, and we wish to turn on the 2nd bit.
 
@@ -130,6 +130,7 @@ Suppose we have value 120, and we wish to turn on the 2nd bit.
 |   00000100    (1<<2)
     --------
     01111100
+
 What about -120 and 6th bit?
 
     10001000   (-120 in binary)
