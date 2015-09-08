@@ -14,6 +14,18 @@ return A
 ```
 Complexity  : O(N)
 
+```C++
+int countDivisor(int n) {
+  int divisor = 0;
+  for (int i = 1; i <= n; i++) {
+    if (n % i == 0) {
+      divisor++;
+    }
+  }
+  return divisor;
+}
+```
+
 Observation : Apart from 1 and N itself, smallest factor of N is 2 and largest factor is N/2.
 Let 
 ```
@@ -39,5 +51,26 @@ for i = 1 to sqrt(N):
           }
 ```
 Complexity : O(sqrt(N))
+
+Basically since we are going to get divisors in pair, we can count them by 2 here as we are considering both i and n/i.
+Only if i = sqrt(N) we are going to add two to disisor count.
+
+```C++
+int countDivisor(int n) {
+  int divisor = 0;
+  for (int i = 1; i * i <= n; i++) {
+    if (i * i == n) {
+      divisor += 1;
+    } else if (n % i == 0) {
+      divisor += 2;
+    }
+  }
+  return divisor;
+}
+```
+
+### Optimized solution :
+
+
 
 References : [Finding divisors](https://www.youtube.com/watch?v=dolcMgiJ7I0&index=5&list=PL2_aWCzGMAwLL-mEB4ef20f3iqWMGWa25)
