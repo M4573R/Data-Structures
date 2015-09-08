@@ -134,3 +134,24 @@ int main() {
     return 0;
 }
 ```
+
+
+### Last one : From http://www.progkriya.org/gyan/basic-number-theory.html#section5
+
+```C++
+define M 1000005
+int phi[M];
+
+void calculatePhi() {
+  for (int i = 1; i < M; i++) {
+    phi[i] = i; // initialize all numbers to n
+  }
+  for (int p = 2; p < M; p++) {
+    if (phi[p] == p) { // if p is a prime
+      for (int k = p; k < M; k += p) { 
+        phi[k] -= phi[k] / p; //use the product rule
+      }
+    }
+  }
+}
+```
