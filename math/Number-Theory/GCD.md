@@ -81,5 +81,10 @@ Reference :
 2. http://www.math.fsu.edu/~pkirby/mad2104/
 
 
+Short cut :
 
-
+```C++
+int gcd(int a, int b) {
+  return b == 0 ? a : gcd(b, a % b);
+}
+```
