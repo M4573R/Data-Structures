@@ -163,12 +163,13 @@ We can see the idea here :
 
 Steps :
 
-1) Initialize result as n
-2) Consider every number 'p' (where 'p' varies from 2 to √n). 
-   If p divides n, then do following
-   a) Remove all occurances of p by repeatedly dividing n by p.
-   b) After removing all occurances, take p(unique) and use the product rule to get n*(1-1/i) or update n = n - n/i or n-=n/i
-3) If n does not become 1 then there's the last prime factor that is greater than sqrt(N) remaining so we should
+1. Initialize result as n
+2. Consider every number 'p' (where 'p' varies from 2 to √n). 
+   If p divides n, then do following :
+
+   * Remove all occurances of p by repeatedly dividing n by p.
+   * After removing all occurances, take p(unique) and use the product rule to get n*(1-1/i) or update n = n - n/i or n-=n/i
+3. If n does not become 1 then there's the last prime factor that is greater than sqrt(N) remaining so we should
 apply the product rule on that factor too.
 
 
@@ -280,7 +281,7 @@ Since n > 1, result = result - n/result = 4
 From CP3 :
 
 ```C++
-ll EulerPhi(ll N) {
+ll EulerPhi(ll N) { // This assumes that we have used Sieve to create a list of primes
 ll PF_idx = 0, PF = primes[PF_idx], ans = N; // start from ans = N
 while (PF * PF <= N) {
 if (N % PF == 0) ans -= ans / PF; // only count unique factor
@@ -291,5 +292,62 @@ if (N != 1) ans -= ans / N; // last factor
 return ans;
 }
 ```
+
+From http://www.progkriya.org/gyan/basic-number-theory.html#section5
+
+```C++
+int phi (int n) {
+  int ret = n;
+  for (int i = 2; i * i <= n; i++) {
+    if (n % i == 0) {
+      while (n % i == 0) {
+        n /= i;
+      }
+      ret -= ret / i; 
+    }
+  }
+  // this case will happen if n is a prime number
+  // in that case we won't find any prime that divides n
+  // that's less or equal to sqrt(n)
+  if (n > 1) ret -= ret / n;
+  return ret;
+}
+```
+
+From [Euler's Totient](http://learningarsenal.info/index.php/2015/08/21/eulers-totient-function/)
+
+```C++
+#include <stdio.h>
+long long int phi(long long int n);
+int main(void) {
+       long long int n,totient;
+       scanf("%lld",&n);
+    while(n!=0)
+    {
+      totient= phi(n);
+      printf("%lld\n",totient);
+      scanf("%lld",&n);
+    }
+ return 0;
+}
+ 
+long long int phi (long long int n) 
+{
+   long long int result = n;
+   long long int i;
+   for (i=2; i*i<=n; ++i)
+     if (n % i == 0) 
+       {
+          while (n % i == 0)
+           n /= i;
+           result -= result / i;
+        }
+     if (n > 1)
+     result -= result / n;
+     return result;
+}
+```
+
+###Optimized Method :
 
 
