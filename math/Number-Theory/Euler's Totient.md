@@ -167,11 +167,14 @@ Steps :
 2. Consider every number 'p' (where 'p' varies from 2 to √n). 
    If p divides n, then do following :
 
-   * Remove all occurances of p by repeatedly dividing n by p.
-   * After removing all occurances, take p(unique) and use the product rule to get n*(1-1/i) or update n = n - n/i or n-=n/i
+   * Subtract all multiples of p from 1 to n [all multiples of p
+     will have gcd more than 1 (at least p) with n]. Two ways to see it, first is the above lines and secondly
+     We can also say that let's say we have something like 36×(1− 1/2 )(1-1/3) here, so we first calculate
+     (36 - 18) in the first iteration and get 18, then in the second iteration we get 18-18/3 = 18 - 6 = 12. So we are
+     repeatedly updating initial n with n-n/i.
+   * Update n by repeatedly dividing it by p.
 3. If n does not become 1 then there's the last prime factor that is greater than sqrt(N) remaining so we should
-apply the product rule on that factor too.
-
+remove all multiples of n from result.
 
 A implementation of this idea may look like this :
 
@@ -181,9 +184,10 @@ int phi (int n) {
   for (int i = 2; i * i <= n; i++) { // for each i, if i is a divisor of n, we remove all occurances of i from n by
     if (n % i == 0) {               // repeated division and apply the product rule
       while (n % i == 0) {
-        n /= i; // we are removing all occurances of i here. 
+        n /= i; // we are removing all occurances of i by repeated division, since we consider only the unique divisors
       }
-      ret -= ret / i; // applying the product rule here.
+      ret -= ret / i; // Subtracting all multiples of p from 1 to n [all multiples of p
+      //will have gcd more than 1 (at least p) with n]
     }
   }
   // this case will happen if n is a prime number
