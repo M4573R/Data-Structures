@@ -139,7 +139,7 @@ The above code calls gcd function O(n) times. Time complexity of the gcd functio
 in smaller number of given two numbers. Therefore, an upper bound on time complexity of above solution is O(nLogn) 
 [How? there can be at most Log10n digits in all numbers from 1 to n]
 
-According to Euler's product rule :
+###According to Euler's product rule :
 
 ![i](https://upload.wikimedia.org/math/6/1/9/619a7845480ba7a8a749dc56a6de7c60.png)
 
@@ -209,3 +209,87 @@ int phi (int n) {
 	return result;
 }
 ```
+
+From http://www.geeksforgeeks.org/eulers-totient-function/
+
+```C++
+#include <iostream>
+#include<cmath>
+#include<cstdio>
+using namespace std;
+int phi(int n)
+{    
+    int result = n;   // Initialize result as n
+ 
+    // Consider all prime factors of n and subtract their
+    // multiples from result
+    for (int p=2; p*p<=n; ++p)
+    {
+        // Check if i is a prime factor.
+        if (n % p == 0)
+        {
+            // If yes, then update n and result 
+            while (n % p == 0)
+                n /= p;
+            result -= result / p;
+        }
+    }
+ 
+    // If n has a prime factor greater than sqrt(n)
+    // (There can be at-most one such prime factor)
+    if (n > 1)
+        result -= result / n;
+    return result;
+}
+ 
+// Driver program to test above function
+int main()
+{
+    int n;
+    for (n=1; n<=10; n++)
+      printf("phi(%d) = %d\n", n, phi(n));
+    return 0;
+```
+Output:
+
+phi(1) = 1
+phi(2) = 1
+phi(3) = 2
+phi(4) = 2
+phi(5) = 4
+phi(6) = 2
+phi(7) = 6
+phi(8) = 4
+phi(9) = 6
+phi(10) = 4
+
+Let us take an example to understand the above algorithm.
+
+n = 10. 
+Initialize: result = 10
+
+2 is a prime factor, so n = n/i = 5, result = 5
+3 is not a prime factor.
+
+The for loop stops after 3 as 4*4 is not less than or equal
+to 10.
+
+After for loop, result = 5, n = 5
+Since n > 1, result = result - n/result = 4
+
+From CP3 :
+
+```C++
+ll EulerPhi(ll N) {
+ll PF_idx = 0, PF = primes[PF_idx], ans = N; // start from ans = N
+while (PF * PF <= N) {
+if (N % PF == 0) ans -= ans / PF; // only count unique factor
+while (N % PF == 0) N /= PF;
+PF = primes[++PF_idx];
+}
+if (N != 1) ans -= ans / N; // last factor
+return ans;
+}
+```
+
+
