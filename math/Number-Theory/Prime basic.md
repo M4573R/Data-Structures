@@ -20,6 +20,36 @@ bool isPrime(int n) {
 ```
 
 To check whether 1000000007 is prime or not, we have to check 1000000007 - 2 = 1000000005 numbers. We can reduce this complexity
-to O(sqrt(N)) if we observe that if n is composite and n = a * b, then either a or b would be less than sqrt(N).
+to O(sqrt(N)) if we observe that if n is composite and n = a * b, then either a or b would be less than sqrt(N). So we just check numbers upto and including sqrt(N)
 
-If a or b is bigger than 
+```C++
+#include <cmath>
+using namespace std;
+
+bool isPrime(int n) {
+  if (n < 2) return false;
+  for (int i = 2; i <= sqrt(n) + 1; i++) {
+    if (n % i == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+```
+
+But we are comparing double precision numbers to integers this way. To avoid this :
+
+```C++
+bool isPrime(int n) {
+  if (n < 2) return false;
+  for (long long i = 2; i * i <= n; i++) {
+    if (n % i == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+```
+
+
+
