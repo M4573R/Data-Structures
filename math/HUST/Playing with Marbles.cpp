@@ -31,3 +31,33 @@ int main()
 
 }
 
+//Another
+
+#include <cstdio>
+ 
+using namespace std;
+ 
+int main( void ) {
+  int n;
+  while( scanf( "%d", &n ) == 1 ) {
+    if( n == 0 ) break;
+    printf( "%d =", n );
+    int c = 1, v = n, ok = 0;
+    for( int i = 2; i*i <= n; ++i )
+      if( !( n%i ) ) {
+	c++;
+	while( !( v%i ) ) {
+	  v /= i;
+	  if( ok ) printf( " *" );
+	  printf( " %d", i );
+	  ok = 1;
+	}
+      }
+    if( v > 1 ) {
+      if( ok ) printf( " *" );
+      printf( " %d", v );
+    }
+    printf( "\nWith %d marbles, %d different rectangles can be constructed.\n", n, c );
+  }
+  return 0;
+}
