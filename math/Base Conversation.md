@@ -1,8 +1,7 @@
-Idea : Divide the number by the base and take the remainder to get the digits. Repetedly divide the quotient and keep taking the
-remiander until the quotient becomes zero.
+Idea : Divide the number by the base and take the remainder to get the digits. Repetedly divide the quotient and keep taking the remiander until the quotient becomes zero.
 
-http://www.cs.utsa.edu/~wagner/CS3343/recursion/bases.html
-
+1.http://www.cs.utsa.edu/~wagner/CS3343/recursion/bases.html
+2.https://www.youtube.com/watch?v=4vNlt_EDw1Q&list=PL2_aWCzGMAwLL-mEB4ef20f3iqWMGWa25&index=2
 
 Number Base Conversion: The example below converts a given base 10 number to base 8. (The same technique will work for conversions to any desired base.)
 n = 93.  Repeatedly divide by 8 and take the remainder.
