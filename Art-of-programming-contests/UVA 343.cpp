@@ -21,19 +21,25 @@ int main()
  int q;
 
  while(cin >> s1 >> s2)
- {   bool flag = false;
+ {   if(s1[0]=='0' && s2[0] == '0')
+        {
+            cout<<s1<<" (base "<<2<<") = "<<s2<<" (base "<<2<<")"<<endl;
+            continue;
+        }
+     bool flag = false;
      int n = 0;
      int m = 0;
      // Find the numbers maximum digit and add 1 to it as a digit n can be represented in a minimum base of n + 1
+     //This part finds the minimum possible base for an integer.
      for(int i=0;i<s1.size();i++)
-        n = max(n,val(s1[i])+1);
+        {n = max(n,val(s1[i])+1);}
      for(int i = 0; i<s2.size();i++)
-        m = max(n,val(s2[i]+1));
+        {m = max(m,val(s2[i])+1);}
 
      v1.clear();
      v2.clear();
 
-     // store the values of the first integer
+     // From minimum base n to 36(inclusive) store the values for each base
 
      for(int base = n; base <= 36 ; base++)
      {
@@ -46,7 +52,7 @@ int main()
      }
 
 
-     // store the values for the 2nd int
+     // From minimum base m to 36(inclusive) store the values for each base
 
      for(int base = m; base <= 36 ; base++)
      {
@@ -58,17 +64,16 @@ int main()
          v2.push_back(q);
      }
 
-     for(int i=0;i<v1.size();i++)
+     for(int i=0;i<v1.size() && !flag;i++)
      {
-         for(int j = 0; j<v2.size();j++)
+         for(int j = 0; j<v2.size() && !flag ;j++)
          {
              if(v1[i]==v2[j])
                 {flag = true;
                 cout<<s1<<" (base "<<i+n<<") = "<<s2<<" (base "<<j+m<<")"<<endl;
-                break;}
+               }
          }
-         if(flag == true)
-            break;
+
      }
 
     if(flag==false)
