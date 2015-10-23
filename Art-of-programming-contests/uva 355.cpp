@@ -15,7 +15,9 @@ int val(char n)
     if(n>='A' && n<='F')
         return n-'A'+10;
 }
-
+// converts num in base1 to decimal
+//check if the number is valid in that base or not
+// a number's digits should be base-1 maximum to be valid in a base
 bool base1_to_dec(string num,int base1)
 {
     decimal = 0;
@@ -29,7 +31,7 @@ bool base1_to_dec(string num,int base1)
     }
     return true;
 }
-
+//converts num in decimal to some base2
 void dec_to_base2(string num,int base1,int base2)
 {
     string ans;
