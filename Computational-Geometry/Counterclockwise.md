@@ -11,6 +11,11 @@ From [Geometric primitives](http://algs4.cs.princeton.edu/91primitives/)
 
 
 
+and 
+
+![alt](filesystem:chrome-extension://bpconcjcammlapcogcnnelfmaeghhagj/temporary/1446915819992screensave.png)
+
+
 ccw test : 
 The second version might be more efficient since fewer multiplications and additions.
 Susceptible to overflow error - consider using long integers for intermediate results.
