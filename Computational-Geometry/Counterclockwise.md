@@ -16,10 +16,26 @@ and
 ![alt](https://cloud.githubusercontent.com/assets/4555412/11016217/5c874912-85a4-11e5-8242-2cda0d1bb5de.png)
 
 
-
 ccw test : 
 The second version might be more efficient since fewer multiplications and additions.
 Susceptible to overflow error - consider using long integers for intermediate results.
+
+```Java
 public static int ccw(Point a, Point b, Point c) {
    return (b.x - a.x) * (c.y - a.y) - (c.x - a.x) * (b.y - a.y);
+}
+```
+and 
+
+```Python
+def ccw(a, b, c):
+    dx1 = b[0] - a[0];
+    dx2 = c[0] - a[0];
+    dy1 = b[1] - a[1];
+    dy2 = c[1] - a[1];
+    if dx1*dy2 > dy1*dx2;
+        return 1;
+    if dx1*dy2 < dy1*dx2;
+        return -1;
+    return 0;
 }
