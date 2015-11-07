@@ -13,7 +13,7 @@ From [Geometric primitives](http://algs4.cs.princeton.edu/91primitives/)
 
 and 
 
-![alt](filesystem:chrome-extension://bpconcjcammlapcogcnnelfmaeghhagj/temporary/1446915819992screensave.png)
+![alt](https://drive.google.com/file/d/0B3xwwrsrsAQCaTBJS2ZDaFJ3eDg/view?usp=drivesdk)
 
 
 ccw test : 
