@@ -24,6 +24,6 @@ x[n]=x[0]; // last point is same as first
 y[n]=y[0];
 for (int i=0;i<n;i++)
 	polygon_area += x[i+1]*y[i]-x[i]*y[i+1]; //calculate polygon's area
-}
 cout << polygon_area << endl;
+}
 ```
