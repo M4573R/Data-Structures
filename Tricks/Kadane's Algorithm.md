@@ -5,7 +5,8 @@ is 4, −1, 2, 1, with sum 6.
 
 Here's the explanation : 
 
-http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
+1.http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
+2.https://en.wikipedia.org/wiki/Maximum_subarray_problem
 
 
 
