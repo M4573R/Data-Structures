@@ -18,7 +18,7 @@ int Maximum_Sum_Subarray(int a[],int n)
  { for(int start_index = 0; start_index < n; start_index++)
       { if(start_index + sub_array_size > n)
               break;
-        sum = 0;
+        int sum = 0;
         for(int i= start_index; i<(start_index + sub_array_size); i++)
             sum = sum + a[i];
         ans = max(ans,sum);
