@@ -7,8 +7,9 @@ Here's the explanation :
 
 1.http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
 2.https://en.wikipedia.org/wiki/Maximum_subarray_problem
+3.https://www.youtube.com/watch?v=ohHWQf1HDfU
 
-Inefficient method : Calculate sum of all possible subarrays, return the maximum.
+Inefficient method 1 : Calculate sum of all possible subarrays, return the maximum.
 
 ```C++
 #include<climits>
@@ -30,8 +31,41 @@ int Maximum_Sum_Subarray(int a[],int n)
 
 Complexity : O(n^3)
 
+Inefficient method 2 : For each start index, we are calculating the subarray sum from the beginning for each subarray size.
+To make it faster, instead of starting from the subarray size, we can start from start index and we also should notice that
+for each subarray, the sum is the sum of the previous subarray starting from the same start index + new element. So we change the order of things this way.
 
+```C++
+#include<cmath>
+#include<iostream>
+#include<climits>
+using namespace std;
 
+int Maximum_Sum_Subarray(int arr[],int n)	//Overall Time Complexity O(n^2)
+{
+	int ans = INT_MIN;
+	for(int start_index = 0;start_index < n; ++start_index)					//O(n)		
+	{
+		int sum = 0;
+		for(int sub_array_size = 1;sub_array_size <= n; ++sub_array_size)	//O(n)	
+		{
+			if(start_index+sub_array_size > n)	//Subarray exceeds array bounds
+				break;
+			sum+= arr[start_index + sub_array_size - 1];	//Last element of the new Subarray
+			ans = max(ans,sum);
+		}
+	}
+	return ans;
+}
+
+int main()
+{
+	int a[] = {3,-2,5,-1};
+	cout<<Maximum_Sum_Subarray(a,4)<<"\n";
+	return 0;
+}
+```
+Complexity : O(n^2)
 
 Kadane's Algorithm : 
 
