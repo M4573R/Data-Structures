@@ -1,5 +1,5 @@
 the maximum subarray problem is the task of finding the contiguous subarray within a one-dimensional 
-array of numbers (containing at least one positive number) which has the largest sum. For example, 
+array of numbers  which has the largest sum. For example, 
 for the sequence of values −2, 1, −3, 4, −1, 2, 1, −5, 4; the contiguous subarray with the largest sum 
 is 4, −1, 2, 1, with sum 6.
 
@@ -8,9 +8,32 @@ Here's the explanation :
 1.http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
 2.https://en.wikipedia.org/wiki/Maximum_subarray_problem
 
+Inefficient method : Calculate some of all possible subarrays, return the maximum.
+
+```C++
+#include<climits>
+int Maximum_Sum_Subarray(int a[],int n)
+{int ans = INT_MIN;
+ for(int sub_array_size = 1; sub_array_size <=n;sub_array_size++)
+ { for(int start_index = 0; start_index < n; start_index++)
+      { if(start_index + sub_array_size > n)
+              break;
+        sum = 0;
+        for(int i= start_index; i<(start_index + sub_array_size); i++)
+            sum = sum + a[i];
+        ans = max(ans,sum);
+     }
+ }
+ return ans;
+}
+```
+
+Complexity : O(n^3)
 
 
 
+
+Kadane's Algorithm : 
 
 ```C++
 #include<iostream>
