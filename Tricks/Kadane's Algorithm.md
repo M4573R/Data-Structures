@@ -8,7 +8,7 @@ Here's the explanation :
 1.http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
 2.https://en.wikipedia.org/wiki/Maximum_subarray_problem
 
-Inefficient method : Calculate some of all possible subarrays, return the maximum.
+Inefficient method : Calculate sum of all possible subarrays, return the maximum.
 
 ```C++
 #include<climits>
