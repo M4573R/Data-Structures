@@ -7,7 +7,10 @@ Operate on a string to put a new number in a string position :
 // prints 824
 
 shifting x many characters : generally done by 'character' - 'a'/'A' + new shift like if we want to go to the 'z' - 'a' + 'something
-new'
+new'.
+
+The expression 'a' + ((c - 'a' + n) % 26) will shift a char c by n places Caesar-style.
+General form : 'a'/'A'(first of alphabet) + ((c(given character) - 'a' + n))%26 for the correct shift
 
 http://www.c4learn.com/c-programming/c-arithmetic-operations-on-character/
 
